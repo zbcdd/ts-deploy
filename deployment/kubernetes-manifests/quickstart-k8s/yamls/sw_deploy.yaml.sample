@@ -210,7 +210,7 @@ spec:
   selector:
     matchLabels:
       app: ts-admin-travel-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
@@ -278,7 +278,7 @@ spec:
   selector:
     matchLabels:
       app: ts-admin-user-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
@@ -346,7 +346,7 @@ spec:
   selector:
     matchLabels:
       app: ts-assurance-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
@@ -760,7 +760,7 @@ spec:
   selector:
     matchLabels:
       app: ts-consign-price-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
@@ -970,7 +970,7 @@ spec:
   selector:
     matchLabels:
       app: ts-delivery-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
@@ -1180,7 +1180,7 @@ spec:
   selector:
     matchLabels:
       app: ts-food-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
@@ -1252,7 +1252,7 @@ spec:
   selector:
     matchLabels:
       app: ts-gateway-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
@@ -1530,7 +1530,7 @@ spec:
   selector:
     matchLabels:
       app: ts-order-other-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
@@ -1602,7 +1602,7 @@ spec:
   selector:
     matchLabels:
       app: ts-order-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
@@ -1744,7 +1744,7 @@ spec:
   selector:
     matchLabels:
       app: ts-preserve-other-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
@@ -1814,7 +1814,7 @@ spec:
   selector:
     matchLabels:
       app: ts-preserve-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
@@ -2858,7 +2858,7 @@ spec:
   selector:
     matchLabels:
       app: ts-user-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
