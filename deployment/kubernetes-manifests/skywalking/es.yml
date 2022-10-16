@@ -52,9 +52,16 @@ spec:
           protocol: TCP
         resources:
           limits:
-            cpu: 500m
-            memory: 2Gi
+            cpu: 2000m
+            memory: 8Gi
           requests:
-            cpu: 500m
-            memory: 2Gi
+            cpu: 2000m
+            memory: 8Gi
+        volumeMounts:
+        - mountPath: /usr/share/elasticsearch/data
+          name: sw-volume
+      volumes:
+      - name: sw-volume
+        emptyDir: {}
+
 status: {}
