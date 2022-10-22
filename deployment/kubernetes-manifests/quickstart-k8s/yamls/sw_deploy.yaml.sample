@@ -67,6 +67,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -137,6 +141,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -207,6 +215,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -277,6 +289,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -347,6 +363,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -419,6 +439,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -491,6 +515,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -561,6 +589,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -631,6 +663,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -701,6 +737,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -773,6 +813,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -845,6 +889,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -917,6 +965,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -989,6 +1041,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -1063,6 +1119,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -1133,6 +1193,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -1205,6 +1269,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -1279,6 +1347,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -1349,6 +1421,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -1421,6 +1497,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -1491,6 +1571,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -1565,6 +1649,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -1639,6 +1727,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -1713,6 +1805,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -1785,6 +1881,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -1857,6 +1957,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -1929,6 +2033,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -2001,6 +2109,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -2073,6 +2185,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -2143,6 +2259,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -2215,6 +2335,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -2285,6 +2409,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -2357,6 +2485,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -2429,6 +2561,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -2501,6 +2637,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -2573,6 +2713,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -2645,6 +2789,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -2717,6 +2865,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -2787,6 +2939,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -2859,6 +3015,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -2931,6 +3091,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -3003,6 +3167,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -3073,6 +3241,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -3117,6 +3289,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -3189,6 +3365,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
