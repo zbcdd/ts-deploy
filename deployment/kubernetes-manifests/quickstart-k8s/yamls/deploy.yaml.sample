@@ -6,9 +6,11 @@ spec:
   selector:
     matchLabels:
       app: ts-admin-basic-info-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-admin-basic-info-service
     spec:
@@ -21,6 +23,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - configMapRef:
                 name: nacos
@@ -39,6 +47,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -48,9 +60,11 @@ spec:
   selector:
     matchLabels:
       app: ts-admin-order-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-admin-order-service
     spec:
@@ -63,6 +77,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - configMapRef:
                 name: nacos
@@ -81,6 +101,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -90,9 +114,11 @@ spec:
   selector:
     matchLabels:
       app: ts-admin-route-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-admin-route-service
     spec:
@@ -105,6 +131,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - configMapRef:
                 name: nacos
@@ -123,6 +155,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -132,9 +168,11 @@ spec:
   selector:
     matchLabels:
       app: ts-admin-travel-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-admin-travel-service
     spec:
@@ -147,6 +185,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - configMapRef:
                 name: nacos
@@ -165,6 +209,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -174,9 +222,11 @@ spec:
   selector:
     matchLabels:
       app: ts-admin-user-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-admin-user-service
     spec:
@@ -189,6 +239,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - configMapRef:
                 name: nacos
@@ -207,6 +263,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -216,9 +276,11 @@ spec:
   selector:
     matchLabels:
       app: ts-assurance-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-assurance-service
     spec:
@@ -231,6 +293,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - secretRef:
                 name: ts-assurance-mysql
@@ -251,6 +319,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -260,9 +332,11 @@ spec:
   selector:
     matchLabels:
       app: ts-auth-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-auth-service
     spec:
@@ -275,6 +349,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - secretRef:
                 name: ts-auth-mysql
@@ -295,6 +375,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -304,9 +388,11 @@ spec:
   selector:
     matchLabels:
       app: ts-avatar-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-avatar-service
     spec:
@@ -319,6 +405,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - configMapRef:
                 name: nacos
@@ -337,6 +429,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -346,9 +442,11 @@ spec:
   selector:
     matchLabels:
       app: ts-basic-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-basic-service
     spec:
@@ -361,6 +459,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - configMapRef:
                 name: nacos
@@ -379,6 +483,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -388,9 +496,11 @@ spec:
   selector:
     matchLabels:
       app: ts-cancel-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-cancel-service
     spec:
@@ -403,6 +513,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - configMapRef:
                 name: nacos
@@ -421,6 +537,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -430,9 +550,11 @@ spec:
   selector:
     matchLabels:
       app: ts-config-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-config-service
     spec:
@@ -445,6 +567,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - secretRef:
                 name: ts-config-mysql
@@ -465,6 +593,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -474,9 +606,11 @@ spec:
   selector:
     matchLabels:
       app: ts-consign-price-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-consign-price-service
     spec:
@@ -489,6 +623,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - secretRef:
                 name: ts-consign-price-mysql
@@ -509,6 +649,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -518,9 +662,11 @@ spec:
   selector:
     matchLabels:
       app: ts-consign-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-consign-service
     spec:
@@ -533,6 +679,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - secretRef:
                 name: ts-consign-mysql
@@ -553,6 +705,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -562,9 +718,11 @@ spec:
   selector:
     matchLabels:
       app: ts-contacts-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-contacts-service
     spec:
@@ -577,6 +735,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - secretRef:
                 name: ts-contacts-mysql
@@ -597,6 +761,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -606,9 +774,11 @@ spec:
   selector:
     matchLabels:
       app: ts-delivery-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-delivery-service
     spec:
@@ -621,6 +791,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - secretRef:
                 name: ts-delivery-mysql
@@ -643,6 +819,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -652,9 +832,11 @@ spec:
   selector:
     matchLabels:
       app: ts-execute-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-execute-service
     spec:
@@ -667,6 +849,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - configMapRef:
                 name: nacos
@@ -685,6 +873,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -694,9 +886,11 @@ spec:
   selector:
     matchLabels:
       app: ts-food-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-food-service
     spec:
@@ -709,6 +903,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - configMapRef:
                 name: nacos
@@ -731,6 +931,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -740,9 +944,11 @@ spec:
   selector:
     matchLabels:
       app: ts-food-delivery-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-food-delivery-service
     spec:
@@ -755,6 +961,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - secretRef:
                 name: ts-food-delivery-mysql
@@ -775,6 +987,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -784,9 +1000,11 @@ spec:
   selector:
     matchLabels:
       app: ts-gateway-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-gateway-service
     spec:
@@ -799,6 +1017,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - configMapRef:
                 name: nacos
@@ -817,6 +1041,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -826,9 +1054,11 @@ spec:
   selector:
     matchLabels:
       app: ts-inside-payment-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-inside-payment-service
     spec:
@@ -841,6 +1071,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - secretRef:
                 name: ts-inside-payment-mysql
@@ -861,6 +1097,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -870,9 +1110,11 @@ spec:
   selector:
     matchLabels:
       app: ts-news-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-news-service
     spec:
@@ -885,6 +1127,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - configMapRef:
                 name: nacos
@@ -903,6 +1151,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -912,9 +1164,11 @@ spec:
   selector:
     matchLabels:
       app: ts-notification-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-notification-service
     spec:
@@ -927,6 +1181,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - secretRef:
                 name: ts-notification-mysql
@@ -949,6 +1209,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -958,9 +1222,11 @@ spec:
   selector:
     matchLabels:
       app: ts-order-other-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-order-other-service
     spec:
@@ -973,6 +1239,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - secretRef:
                 name: ts-order-other-mysql
@@ -995,6 +1267,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -1004,9 +1280,11 @@ spec:
   selector:
     matchLabels:
       app: ts-order-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-order-service
     spec:
@@ -1019,6 +1297,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - secretRef:
                 name: ts-order-mysql
@@ -1041,6 +1325,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -1050,9 +1338,11 @@ spec:
   selector:
     matchLabels:
       app: ts-payment-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-payment-service
     spec:
@@ -1065,6 +1355,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - secretRef:
                 name: ts-payment-mysql
@@ -1085,6 +1381,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -1094,9 +1394,11 @@ spec:
   selector:
     matchLabels:
       app: ts-preserve-other-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-preserve-other-service
     spec:
@@ -1109,6 +1411,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - configMapRef:
                 name: nacos
@@ -1129,6 +1437,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -1138,9 +1450,11 @@ spec:
   selector:
     matchLabels:
       app: ts-preserve-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-preserve-service
     spec:
@@ -1153,6 +1467,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - configMapRef:
                 name: nacos
@@ -1173,6 +1493,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -1182,9 +1506,11 @@ spec:
   selector:
     matchLabels:
       app: ts-price-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-price-service
     spec:
@@ -1197,6 +1523,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - secretRef:
                 name: ts-price-mysql
@@ -1217,6 +1549,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -1226,9 +1562,11 @@ spec:
   selector:
     matchLabels:
       app: ts-rebook-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-rebook-service
     spec:
@@ -1241,6 +1579,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - configMapRef:
                 name: nacos
@@ -1261,6 +1605,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -1270,9 +1618,11 @@ spec:
   selector:
     matchLabels:
       app: ts-route-plan-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-route-plan-service
     spec:
@@ -1285,6 +1635,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - configMapRef:
                 name: nacos
@@ -1303,6 +1659,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -1312,9 +1672,11 @@ spec:
   selector:
     matchLabels:
       app: ts-route-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-route-service
     spec:
@@ -1327,6 +1689,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - secretRef:
                 name: ts-route-mysql
@@ -1347,6 +1715,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -1356,9 +1728,11 @@ spec:
   selector:
     matchLabels:
       app: ts-seat-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-seat-service
     spec:
@@ -1371,6 +1745,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - configMapRef:
                 name: nacos
@@ -1389,6 +1769,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -1398,9 +1782,11 @@ spec:
   selector:
     matchLabels:
       app: ts-security-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-security-service
     spec:
@@ -1413,6 +1799,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - secretRef:
                 name: ts-security-mysql
@@ -1433,6 +1825,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -1442,9 +1838,11 @@ spec:
   selector:
     matchLabels:
       app: ts-station-food-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-station-food-service
     spec:
@@ -1457,6 +1855,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - secretRef:
                 name: ts-station-food-mysql
@@ -1477,6 +1881,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -1486,9 +1894,11 @@ spec:
   selector:
     matchLabels:
       app: ts-station-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-station-service
     spec:
@@ -1501,6 +1911,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - secretRef:
                 name: ts-station-mysql
@@ -1521,6 +1937,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -1530,9 +1950,11 @@ spec:
   selector:
     matchLabels:
       app: ts-ticket-office-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-ticket-office-service
     spec:
@@ -1545,6 +1967,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - secretRef:
                 name: ts-ticket-office-mysql
@@ -1565,6 +1993,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -1574,9 +2006,11 @@ spec:
   selector:
     matchLabels:
       app: ts-train-food-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-train-food-service
     spec:
@@ -1589,6 +2023,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - secretRef:
                 name: ts-train-food-mysql
@@ -1609,6 +2049,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -1618,9 +2062,11 @@ spec:
   selector:
     matchLabels:
       app: ts-train-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-train-service
     spec:
@@ -1633,6 +2079,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - secretRef:
                 name: ts-train-mysql
@@ -1653,6 +2105,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -1662,9 +2118,11 @@ spec:
   selector:
     matchLabels:
       app: ts-travel-plan-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-travel-plan-service
     spec:
@@ -1677,6 +2135,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - configMapRef:
                 name: nacos
@@ -1695,6 +2159,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -1704,9 +2172,11 @@ spec:
   selector:
     matchLabels:
       app: ts-travel-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-travel-service
     spec:
@@ -1719,6 +2189,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - secretRef:
                 name: ts-travel-mysql
@@ -1739,6 +2215,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -1748,9 +2228,11 @@ spec:
   selector:
     matchLabels:
       app: ts-travel2-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-travel2-service
     spec:
@@ -1763,6 +2245,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - secretRef:
                 name: ts-travel2-mysql
@@ -1783,6 +2271,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -1792,9 +2284,11 @@ spec:
   selector:
     matchLabels:
       app: ts-user-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-user-service
     spec:
@@ -1807,6 +2301,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - secretRef:
                 name: ts-user-mysql
@@ -1827,6 +2327,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -1836,9 +2340,11 @@ spec:
   selector:
     matchLabels:
       app: ts-verification-code-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-verification-code-service
     spec:
@@ -1851,6 +2357,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - configMapRef:
                 name: nacos
@@ -1869,6 +2381,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -1878,7 +2394,7 @@ spec:
   selector:
     matchLabels:
       app: ts-voucher-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
@@ -1893,6 +2409,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - secretRef:
                 name: ts-voucher-mysql
@@ -1913,6 +2435,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -1922,9 +2448,11 @@ spec:
   selector:
     matchLabels:
       app: ts-wait-order-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
       labels:
         app: ts-wait-order-service
     spec:
@@ -1937,6 +2465,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app']
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
           envFrom:
             - secretRef:
                 name: ts-wait-order-mysql
@@ -1957,6 +2491,10 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
 ---
 apiVersion: apps/v1
 kind: Deployment
