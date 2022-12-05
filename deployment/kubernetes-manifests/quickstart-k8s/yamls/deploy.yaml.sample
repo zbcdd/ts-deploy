@@ -10,7 +10,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-admin-basic-info-service
     spec:
@@ -29,6 +29,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - configMapRef:
                 name: nacos
@@ -64,7 +66,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-admin-order-service
     spec:
@@ -83,6 +85,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - configMapRef:
                 name: nacos
@@ -118,7 +122,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-admin-route-service
     spec:
@@ -137,6 +141,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - configMapRef:
                 name: nacos
@@ -172,7 +178,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-admin-travel-service
     spec:
@@ -191,6 +197,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - configMapRef:
                 name: nacos
@@ -226,7 +234,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-admin-user-service
     spec:
@@ -245,6 +253,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - configMapRef:
                 name: nacos
@@ -280,7 +290,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-assurance-service
     spec:
@@ -299,6 +309,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - secretRef:
                 name: ts-assurance-mysql
@@ -336,7 +348,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-auth-service
     spec:
@@ -355,6 +367,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - secretRef:
                 name: ts-auth-mysql
@@ -392,7 +406,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-avatar-service
     spec:
@@ -411,6 +425,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - configMapRef:
                 name: nacos
@@ -446,7 +462,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-basic-service
     spec:
@@ -465,6 +481,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - configMapRef:
                 name: nacos
@@ -500,7 +518,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-cancel-service
     spec:
@@ -519,6 +537,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - configMapRef:
                 name: nacos
@@ -554,7 +574,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-config-service
     spec:
@@ -573,6 +593,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - secretRef:
                 name: ts-config-mysql
@@ -610,13 +632,13 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-consign-price-service
     spec:
       containers:
         - name: ts-consign-price-service
-          image: codewisdom/ts-consign-price-service:1.0.0
+          image: codewisdom/ts-consign-price-service:1.0.2
           imagePullPolicy: IfNotPresent
           env:
             - name: NODE_IP
@@ -629,6 +651,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - secretRef:
                 name: ts-consign-price-mysql
@@ -666,7 +690,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-consign-service
     spec:
@@ -685,6 +709,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - secretRef:
                 name: ts-consign-mysql
@@ -722,7 +748,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-contacts-service
     spec:
@@ -741,6 +767,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - secretRef:
                 name: ts-contacts-mysql
@@ -778,7 +806,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-delivery-service
     spec:
@@ -797,6 +825,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - secretRef:
                 name: ts-delivery-mysql
@@ -836,7 +866,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-execute-service
     spec:
@@ -855,6 +885,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - configMapRef:
                 name: nacos
@@ -890,7 +922,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-food-service
     spec:
@@ -909,6 +941,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - configMapRef:
                 name: nacos
@@ -948,7 +982,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-food-delivery-service
     spec:
@@ -967,6 +1001,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - secretRef:
                 name: ts-food-delivery-mysql
@@ -1004,7 +1040,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-gateway-service
     spec:
@@ -1023,6 +1059,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - configMapRef:
                 name: nacos
@@ -1058,7 +1096,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-inside-payment-service
     spec:
@@ -1077,6 +1115,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - secretRef:
                 name: ts-inside-payment-mysql
@@ -1114,7 +1154,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-news-service
     spec:
@@ -1133,6 +1173,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - configMapRef:
                 name: nacos
@@ -1168,7 +1210,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-notification-service
     spec:
@@ -1187,6 +1229,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - secretRef:
                 name: ts-notification-mysql
@@ -1226,7 +1270,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-order-other-service
     spec:
@@ -1245,6 +1289,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - secretRef:
                 name: ts-order-other-mysql
@@ -1284,7 +1330,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-order-service
     spec:
@@ -1303,6 +1349,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - secretRef:
                 name: ts-order-mysql
@@ -1342,7 +1390,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-payment-service
     spec:
@@ -1361,6 +1409,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - secretRef:
                 name: ts-payment-mysql
@@ -1398,7 +1448,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-preserve-other-service
     spec:
@@ -1417,6 +1467,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - configMapRef:
                 name: nacos
@@ -1454,7 +1506,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-preserve-service
     spec:
@@ -1473,6 +1525,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - configMapRef:
                 name: nacos
@@ -1510,7 +1564,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-price-service
     spec:
@@ -1529,6 +1583,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - secretRef:
                 name: ts-price-mysql
@@ -1566,7 +1622,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-rebook-service
     spec:
@@ -1585,6 +1641,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - configMapRef:
                 name: nacos
@@ -1622,7 +1680,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-route-plan-service
     spec:
@@ -1641,6 +1699,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - configMapRef:
                 name: nacos
@@ -1676,7 +1736,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-route-service
     spec:
@@ -1695,6 +1755,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - secretRef:
                 name: ts-route-mysql
@@ -1732,7 +1794,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-seat-service
     spec:
@@ -1751,6 +1813,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - configMapRef:
                 name: nacos
@@ -1786,7 +1850,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-security-service
     spec:
@@ -1805,6 +1869,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - secretRef:
                 name: ts-security-mysql
@@ -1842,7 +1908,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-station-food-service
     spec:
@@ -1861,6 +1927,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - secretRef:
                 name: ts-station-food-mysql
@@ -1898,7 +1966,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-station-service
     spec:
@@ -1917,6 +1985,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - secretRef:
                 name: ts-station-mysql
@@ -1954,7 +2024,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-ticket-office-service
     spec:
@@ -1973,6 +2043,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - secretRef:
                 name: ts-ticket-office-mysql
@@ -2010,7 +2082,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-train-food-service
     spec:
@@ -2029,6 +2101,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - secretRef:
                 name: ts-train-food-mysql
@@ -2066,7 +2140,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-train-service
     spec:
@@ -2085,6 +2159,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - secretRef:
                 name: ts-train-mysql
@@ -2122,7 +2198,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-travel-plan-service
     spec:
@@ -2141,6 +2217,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - configMapRef:
                 name: nacos
@@ -2176,7 +2254,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-travel-service
     spec:
@@ -2195,6 +2273,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - secretRef:
                 name: ts-travel-mysql
@@ -2232,7 +2312,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-travel2-service
     spec:
@@ -2251,6 +2331,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - secretRef:
                 name: ts-travel2-mysql
@@ -2288,7 +2370,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-user-service
     spec:
@@ -2307,6 +2389,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - secretRef:
                 name: ts-user-mysql
@@ -2344,7 +2428,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-verification-code-service
     spec:
@@ -2363,6 +2447,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - configMapRef:
                 name: nacos
@@ -2415,6 +2501,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - secretRef:
                 name: ts-voucher-mysql
@@ -2452,7 +2540,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/my-instrumentation"
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-wait-order-service
     spec:
@@ -2471,6 +2559,8 @@ spec:
                   fieldPath: metadata.labels['app']
             - name: OTEL_RESOURCE_ATTRIBUTES
               value: "service.name=$(SERVICE_NAME),node.ip=$(NODE_IP)"
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"
           envFrom:
             - secretRef:
                 name: ts-wait-order-mysql
