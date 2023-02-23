@@ -1039,8 +1039,6 @@ spec:
   replicas: 2
   template:
     metadata:
-      annotations:
-        instrumentation.opentelemetry.io/inject-java: "opentelemetry-operator-system/instrumentation-3090"
       labels:
         app: ts-gateway-service
     spec:
